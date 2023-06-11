@@ -12,4 +12,15 @@ GM:FileWatchEvent(actionType: number, watchID: number, fileName: string)
 watchID: number = efsw.Watch(fileName: string, pathID: string)
 
 efsw.Unwatch(watchID: number)
+
+efsw.ACTION_ADD = 1
+efsw.ACTION_DELETE = 2
+efsw.ACTION_MODIFIED = 3
+
+efsw.ERROR_FILE_NOT_FOUND = -1
+efsw.ERROR_FILE_NOT_READABLE = -2
+efsw.ERROR_FILE_OUT_OF_SCOPE = -3
+efsw.ERROR_FILE_REMOTE = -4
+efsw.ERROR_FILE_REPEATED = -5
+efsw.ERROR_UNSPECIFIED = -6
 ```

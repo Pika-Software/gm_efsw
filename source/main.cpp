@@ -9,6 +9,7 @@
 #include <GarrysMod/InterfacePointers.hpp>
 #include <GarrysMod/Lua/LuaInterface.h>
 #include <optional>
+#include <algorithm>
 
 namespace Path {
     constexpr size_t PATH_BUFFER_SIZE = MAX_UNICODE_PATH;
@@ -66,6 +67,7 @@ struct WatchMetadata {
 };
 class UpdateListener;
 
+IFileSystem* g_pFullFileSystem = nullptr;
 std::unique_ptr<efsw::FileWatcher> g_FileWatcher;
 std::unique_ptr<UpdateListener> g_UpdateListener;
 std::queue<FileWatchEvent> g_FileWatchEvents;
@@ -232,7 +234,7 @@ GMOD_MODULE_OPEN() {
         LUA->PushNumber(efsw::Errors::FileOutOfScope); LUA->SetField(-2, "ERROR_FILE_OUT_OF_SCOPE");
         LUA->PushNumber(efsw::Errors::FileRemote); LUA->SetField(-2, "ERROR_FILE_REMOTE");
         LUA->PushNumber(efsw::Errors::FileRepeated); LUA->SetField(-2, "ERROR_FILE_REPEATED");
-        LUA->PushNumber(efsw::Errors::Unspecified); LUA->SetField(-2, "ERROR_FILE_UNSPECIFIED");
+        LUA->PushNumber(efsw::Errors::Unspecified); LUA->SetField(-2, "ERROR_UNSPECIFIED");
     LUA->SetField(GarrysMod::Lua::INDEX_GLOBAL, "efsw");
 
     return 0;
