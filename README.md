@@ -9,7 +9,7 @@ Based on [efsw library](https://github.com/SpartanJ/efsw)
 GM:FileWatchEvent(actionType: number, watchID: number, fileName: string)
 
 -- on error, will be efsw.ERROR_...
-watchID: number = efsw.Watch(fileName: string, pathID: string)
+watchID: number = efsw.Watch(fileName: string, gamePath: string)
 
 efsw.Unwatch(watchID: number)
 
